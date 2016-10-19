@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Admin
+Route::get('admin', 'AdminController')->name('admin');

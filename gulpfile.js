@@ -1,4 +1,5 @@
-const elixir = require('laravel-elixir');
+var elixir = require('laravel-elixir');
+elixir.config.sourcemaps = false;
 
 require('laravel-elixir-vue-2');
 
@@ -16,4 +17,12 @@ require('laravel-elixir-vue-2');
 elixir(mix => {
     mix.sass('app.scss')
        .webpack('app.js');
+
+    mix.sass([
+        'back/back.scss',
+        'font-awesome-4.6.3/scss/font-awesome.scss',
+        'sweetalert.css'
+    ],'public/css/back.css');
+
+     mix.copy('resources/assets/sass/font-awesome-4.6.3/fonts', 'public/fonts');
 });
