@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>123</title>
+        <title>{{trans('back/admin.title')}}</title>
         <link rel="stylesheet" href="/css/back.css" />
          @yield('head')
     </head>
@@ -22,6 +22,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <a href="#" class="navbar-brand">{{trans('back/admin.title')}}</a>
                 </div>
                 <!-- Top menu -->
                 <ul class="nav navbar-right top-nav">
@@ -32,6 +33,7 @@
                             <li>
                                 <a href="{{ url('/logout') }}" id="logout">
                                     <span class="fa fa-fw fa-power-off"></span>
+                                    {{trans('back/admin.logout')}}
                                 </a>   
                             </li>
                         </ul>

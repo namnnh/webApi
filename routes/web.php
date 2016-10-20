@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 //Admin
 Route::get('admin', 'AdminController')->name('admin');
+
+//users
+Route::get('user/list', 'UserController@index');
