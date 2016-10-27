@@ -119,6 +119,16 @@ return [
     | Available Settings: "single", "daily", "syslog", "errorlog"
     |
     */
+    'nbrPages' => [
+        'front' => [
+            'posts' => 2,
+        ],
+        'back' => [
+            'posts' => 5,
+            'users' => 5,
+            'comments' => 3,
+        ],
+    ],
 
     'log' => env('APP_LOG', 'single'),
 

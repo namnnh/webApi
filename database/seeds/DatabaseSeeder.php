@@ -11,38 +11,53 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+         DB::table('users')->insert([
 
-            [
-                'name' => 'GreatAdmin',
-                'email' => 'admin@la.fr',
-                'password' => bcrypt('admin'),
-            ],
+            ['username' => 'GreatAdmin',
+            'email' => 'admin@la.fr',
+            'password' => bcrypt('admin'),
+            'seen' => true,
+            'role_id' => 1,
+            'valid' => true,
+            'confirmed' => true],
 
-            [
-                'name' => 'GreatRedactor',
-                'email' => 'redac@la.fr',
-                'password' => bcrypt('redac'),
-            ],
+            ['username' => 'GreatRedactor',
+            'email' => 'redac@la.fr',
+            'password' => bcrypt('redac'),
+            'seen' => true,
+            'role_id' => 2,
+            'valid' => true,
+            'confirmed' => true],
 
-            [
-                'name' => 'Walker',
-                'email' => 'walker@la.fr',
-                'password' => bcrypt('walker'),
-            ],
+            ['username' => 'Walker',
+            'email' => 'walker@la.fr',
+            'password' => bcrypt('walker'),
+            'seen' => false,
+            'role_id' => 3,
+            'valid' => false,
+            'confirmed' => true],
 
-            [
-                'name' => 'Slacker',
-                'email' => 'slacker@la.fr',
-                'password' => bcrypt('slacker'),
-            ]
+            ['username' => 'Slacker',
+            'email' => 'slacker@la.fr',
+            'password' => bcrypt('slacker'),
+            'seen' => false,
+            'role_id' => 3,
+            'valid' => false,
+            'confirmed' => true]
 
         ]);
-        DB::table('jokes')->insert([
-            [
-                'body' => 'This is the test sentence',
-                'user_id' => 1
-            ]
+        // DB::table('jokes')->insert([
+        //     [
+        //         'body' => 'This is the test sentence',
+        //         'user_id' => 1
+        //     ]
+        // ]);
+         DB::table('roles')->insert([
+
+            ['title' => 'Administrator', 'slug' => 'admin'],
+            ['title' => 'Redactor', 'slug' => 'redac'],
+            ['title' => 'User', 'slug' => 'user']
+
         ]);
     }
 }
