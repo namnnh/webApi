@@ -11,7 +11,7 @@
             <span class="badge">{{  $counts['total'] }}</span>
         </a>
         @foreach ($roles as $role)
-            <a href="{!! url('user/sort/' . $role->slug) !!}" role="button" class="btn btn-default {{ classActiveOnlySegment(3, $role->slug) }}">{{ $role->title . 's' }} 
+            <a href="{!! url('user/list/' . $role->slug) !!}" role="button" class="btn btn-default {{ classActiveOnlySegment(3, $role->slug) }}">{{ $role->title . 's' }} 
                 <span class="badge">{{ $counts[$role->slug] }}</span>
             </a>
         @endforeach
@@ -34,4 +34,5 @@
             </tbody>
         </table>
     </div>
+    <div class="pull-right link">{!! $users->links() !!}</div>
 @endsection

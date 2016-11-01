@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Repositories\Interfaces\RoleRepositoryInterface;
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use App\Http\Requests\UserUpdateRequest;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -22,5 +23,24 @@ class UserController extends Controller
         $roles = $roleRepository->all();
 
         return view('back.users.index', compact('users', 'counts', 'roles'));
+    }
+
+    public function show(User $user)
+    {
+        return view('back.users.show', compact('user'));
+    }
+
+    public function edit(User $user)
+    {
+        return view('back.users.edit', compact('user'));
+    }
+     public function update(UserUpdateRequest $request, User $user){
+         dd($request->all());
+     }
+     public function destroy(User $user)
+    {
+       // $this->userRepository->destroyUser($user);
+
+        return redirect('user/list')->with('ok', trans('back/users.destroyed'));
     }
 }

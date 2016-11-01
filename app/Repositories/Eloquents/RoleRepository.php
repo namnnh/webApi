@@ -15,4 +15,10 @@ class RoleRepository implements RoleRepositoryInterface
     {
         return $this->role->all();
     }
+    public function allSelect()
+    {
+         $select = $this->all()->pluck('title', 'id');
+
+        return compact('select');
+    }
 }

@@ -19,4 +19,5 @@ Route::get('/', function () {
 Route::get('admin', 'AdminController')->name('admin');
 
 //users
-Route::get('user/list', 'UserController@index');
+Route::get('user/list/{role?}', 'UserController@index');
+Route::resource('user', 'UserController', ['except' => 'index']);
