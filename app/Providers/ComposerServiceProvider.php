@@ -13,8 +13,10 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer(
-            'back.users.edit', 
+        view()->composer([
+             'back.users.edit',
+             'back.users.create'
+        ], 
             function ($view) {
                 $view->with(resolve('App\Repositories\Interfaces\RoleRepositoryInterface')->allSelect());
             }

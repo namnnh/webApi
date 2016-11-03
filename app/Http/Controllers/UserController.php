@@ -6,6 +6,7 @@ use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Repositories\Interfaces\RoleRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\UserCreateRequest;
 use App\Models\User;
 
 class UserController extends Controller
@@ -34,13 +35,25 @@ class UserController extends Controller
     {
         return view('back.users.edit', compact('user'));
     }
-     public function update(UserUpdateRequest $request, User $user){
-         dd($request->all());
-     }
+
+    public function update(UserUpdateRequest $request, User $user){
+        $this->userRepository->update($request->all(), $user);
+        return redirect('user/list')->with('ok', trans('back/user.updated'));
+    }
+
      public function destroy(User $user)
     {
-       // $this->userRepository->destroyUser($user);
+       $this->userRepository->destroyUser($user);
 
-        return redirect('user/list')->with('ok', trans('back/users.destroyed'));
+        return redirect('user/list')->with('ok', trans('back/user.destroyed'));
+    }
+
+    public function create(){
+        return view('back.users.create');
+    }
+
+    public function store(UserCreateRequest $request){
+        $this->userRepository->store($request->all());
+        return redirect('user/list')->with('ok', trans('back/user.created'));
     }
 }

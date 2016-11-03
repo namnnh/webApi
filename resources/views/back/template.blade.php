@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>{{trans('back/admin.title')}}</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="/css/back.css" />
          @yield('head')
     </head>
@@ -48,10 +49,10 @@
                         <li>
                             <a href="#" data-toggle="collapse" data-target="#usermenu"><span class="fa fa-fw fa-user"></span> {{ trans('back/admin.users') }} <span class="fa fa-fw fa-caret-down"></span></a>
                                 <ul id="usermenu" class="collapse">
-                                    <li><a href="#">{{ trans('back/admin.see-all') }}</a></li>
-                                    <li><a href="#">{{ trans('back/admin.add') }}</a></li>
-                                    <li><a href="#">{{ trans('back/roles.roles') }}</a></li>
-                                    <li><a href="#">{{ trans('back/admin.blog-report') }}</a></li>
+                                    <li><a href="{!! url('user/list')!!}">{{ trans('back/admin.see-all') }}</a></li>
+                                    <li><a href="{!! url('user/create') !!}">{{ trans('back/admin.add') }}</a></li>
+                                    <li><a href="{!! url('roles')!!}">{{ trans('back/role.roles') }}</a></li>
+                                    <li><a href="{!! route('user.blog.report')!!}">{{ trans('back/admin.blog-report') }}</a></li>
                                 </ul>
                         </li>
                     </ul>
@@ -72,10 +73,16 @@
         </div>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+              $(function() {
+                   $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+              })
+        </script>
         @yield('scripts')
 
     </body>
-     <script>
-
-        </script>
 </html>

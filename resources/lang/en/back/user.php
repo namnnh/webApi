@@ -14,5 +14,14 @@
         'detail'=>'Detail',
         'email' => 'Email',
         'confirmed' => 'Confirmed',
-        'not-confirmed' => 'Not Confirmed'
+        'not-confirmed' => 'Not Confirmed',
+        'updated' => 'User updated success.',
+        'destroyed' => 'User Destroyed success.',
+        'created' => 'User Created success',
+        'add' => 'Create new User',
+        'createTitle' => 'Create new user',
+        'creation' => 'Creation',
+        'password'=> 'Password',
+        'confirm-password' => 'Confirm Password',
+        'fail'=> 'Some thing worng, pls try again.'
     ];

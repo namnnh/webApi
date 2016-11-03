@@ -21,4 +21,14 @@ class RoleRepository implements RoleRepositoryInterface
 
         return compact('select');
     }
+    public function update($inputs)
+    {
+          foreach ($inputs as $key => $value) {
+            $role = $this->role->whereSlug($key)->first();
+            if(!is_null($role)){
+                $role->title = $value;
+                $role->save();
+            }
+         }
+    }
 }
