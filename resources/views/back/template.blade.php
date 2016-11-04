@@ -55,6 +55,13 @@
                                     <li><a href="{!! route('user.blog.report')!!}">{{ trans('back/admin.blog-report') }}</a></li>
                                 </ul>
                         </li>
+                        <li>
+                                <a href="#" data-toggle="collapse" data-target="#articlemenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.posts') }} <span class="fa fa-fw fa-caret-down"></span></a>
+                                <ul id="articlemenu" class="collapse">
+                                    <li><a href="#">{{ trans('back/admin.see-all') }}</a></li>
+                                    <li><a href="#">{{ trans('back/admin.add') }}</a></li>
+                                </ul>
+                        </li>
                     </ul>
                 </div>
             </nav>

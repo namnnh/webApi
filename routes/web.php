@@ -20,10 +20,13 @@ Route::get('admin', 'AdminController')->name('admin');
 
 //users
 Route::get('user/list/{role?}', 'UserController@index');
+Route::get('user/blog-report', 'UserController@blogReport')->name('user.blog.report');
 Route::resource('user', 'UserController', ['except' => 'index']);
 Route::put('userseen/{user}', 'UserAjaxController@updateSeen');
-Route::get('user/blog-report', 'UserController@blogReport')->name('user.blog.report');
 
 //roles
 Route::get('roles', 'RoleController@index');
 Route::post('roles', 'RoleController@update');
+
+//blog
+Route::get('blog/order', 'BlogController@indexOrder')->name('blog.order');

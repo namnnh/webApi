@@ -56,4 +56,10 @@ class UserController extends Controller
         $this->userRepository->store($request->all());
         return redirect('user/list')->with('ok', trans('back/user.created'));
     }
+
+    public function blogReport()
+    {
+        $authors = $this->userRepository->getBlogAuthorReport();
+        return view('back.users.blog_report', compact('authors'));
+    }
 }

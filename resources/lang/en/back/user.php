@@ -23,5 +23,8 @@
         'creation' => 'Creation',
         'password'=> 'Password',
         'confirm-password' => 'Confirm Password',
-        'fail'=> 'Some thing worng, pls try again.'
+        'fail'=> 'Some thing worng, pls try again.',
+        'latest-blog-title' => 'Latest blog title',
+        'posts-count' => 'Total blogs',
+        'latest-blog-date' => 'Latest posting time'
     ];

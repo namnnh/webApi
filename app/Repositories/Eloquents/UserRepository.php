@@ -104,4 +104,15 @@ class UserRepository implements UserRepositoryInterface
 
         return $this->model;
     }
+
+    public function getBlogAuthorReport()
+    {
+        return $this->model
+            ->has('posts')
+            ->withCount('posts')
+            ->with(['posts' => function ($query) {
+                $query->latest();
+            }])
+            ->get();
+    }
 }

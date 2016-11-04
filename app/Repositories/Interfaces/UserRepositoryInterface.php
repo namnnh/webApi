@@ -13,5 +13,5 @@ interface UserRepositoryInterface
     // public function valid();
     public function destroyUser(User $user);
     // public function confirm();
-    // public function getBlogAuthorReport();
+    public function getBlogAuthorReport();
 }
